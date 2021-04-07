@@ -1,7 +1,5 @@
-public class SingleLinkedList<T> implements ILinkedList<T>
+public class SingleLinkedList<T> extends LinkedList<T> implements ILinkedList<T>
 {
-    private SingleNode<T> firstNode;
-
     @Override
     public void Add(T item) {
         if (firstNode == null)
@@ -28,7 +26,7 @@ public class SingleLinkedList<T> implements ILinkedList<T>
             return true;
         }
 
-        SingleNode<T> prevNode = null;
+        Node<T> prevNode = null;
         for (var tmpNode = firstNode; tmpNode != null; tmpNode = tmpNode.NextNode)
         {
             if (tmpNode.Value == item)
@@ -153,11 +151,8 @@ public class SingleLinkedList<T> implements ILinkedList<T>
 
     private class SingleNode<T> extends Node<T>
     {
-        public SingleNode<T> NextNode;
-
         public SingleNode(T value) {
             Value = value;
-            NextNode = null;
         }
     }
 }

@@ -1,7 +1,5 @@
-public class DoubleLinkedList<T> implements ILinkedList<T>
+public class DoubleLinkedList<T> extends LinkedList<T> implements ILinkedList<T>
 {
-    DoubleNode<T> firstNode;
-
     @Override
     public void Add(T item) {
         if (firstNode == null)
@@ -106,7 +104,7 @@ public class DoubleLinkedList<T> implements ILinkedList<T>
         }
         var counter = 1;
 
-        var tmpNode = firstNode;
+        Node<T> tmpNode = firstNode;
         while ((tmpNode = tmpNode.NextNode) != null)
         {
             counter++;
@@ -117,12 +115,7 @@ public class DoubleLinkedList<T> implements ILinkedList<T>
 
     private class DoubleNode<T> extends Node<T>
     {
-        public DoubleNode<T> NextNode;
-        public DoubleNode<T> PreviousNode;
-
         public DoubleNode(T value) {
-            PreviousNode = null;
-            NextNode = null;
             Value = value;
         }
     }
