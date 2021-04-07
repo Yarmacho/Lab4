@@ -4,14 +4,14 @@ public class SingleLinkedList<T> extends LinkedList<T> implements ILinkedList<T>
     public void Add(T item) {
         if (firstNode == null)
         {
-            firstNode = new SingleNode<>(item);
+            firstNode = createNode(item);
             return;
         }
 
         var tmpNode = firstNode;
         for ( ;tmpNode.NextNode != null; tmpNode = tmpNode.NextNode);
 
-        tmpNode.NextNode =  new SingleNode<>(item);
+        tmpNode.NextNode =  createNode(item);
     }
 
     @Override
@@ -143,16 +143,9 @@ public class SingleLinkedList<T> extends LinkedList<T> implements ILinkedList<T>
             // Перемешиваем два елемента
             var tmpValue = prevNode.NextNode;
             prevNode.NextNode = prevNode.NextNode.NextNode;
-            prevNode.NextNode.NextNode = new SingleNode<>(tmpValue.Value);
+            prevNode.NextNode.NextNode = createNode(tmpValue.Value);
 
             prevNode.NextNode.NextNode.NextNode  = elementAfter;
-        }
-    }
-
-    private class SingleNode<T> extends Node<T>
-    {
-        public SingleNode(T value) {
-            Value = value;
         }
     }
 }

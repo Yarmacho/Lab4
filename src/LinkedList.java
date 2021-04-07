@@ -27,4 +27,17 @@ public abstract class LinkedList<T>
 
         return counter;
     }
+
+    protected Node<T> createNode(T value)
+    {
+        return new ListNode<T>(value);
+    }
+
+    private class ListNode<T> extends Node<T>
+    {
+        public ListNode(T value)
+        {
+            Value = value;
+        }
+    }
 }

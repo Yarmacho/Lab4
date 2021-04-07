@@ -4,12 +4,12 @@ public class DoubleLinkedList<T> extends LinkedList<T> implements ILinkedList<T>
     public void Add(T item) {
         if (firstNode == null)
         {
-            firstNode = new DoubleNode<>(item);
+            firstNode = createNode(item);
             return;
         }
         else if (firstNode.NextNode == null)
         {
-            firstNode.NextNode = new DoubleNode<>(item);
+            firstNode.NextNode = createNode(item);
             firstNode.NextNode.PreviousNode = firstNode;
             return;
         }
@@ -17,7 +17,7 @@ public class DoubleLinkedList<T> extends LinkedList<T> implements ILinkedList<T>
         var tmpNode = firstNode;
         for (; tmpNode.NextNode != null; tmpNode = tmpNode.NextNode);
 
-        tmpNode.NextNode = new DoubleNode<>(item);
+        tmpNode.NextNode = createNode(item);
         tmpNode.NextNode.PreviousNode = tmpNode;
     }
 
@@ -111,12 +111,5 @@ public class DoubleLinkedList<T> extends LinkedList<T> implements ILinkedList<T>
         }
 
         return counter;
-    }
-
-    private class DoubleNode<T> extends Node<T>
-    {
-        public DoubleNode(T value) {
-            Value = value;
-        }
     }
 }
