@@ -79,34 +79,6 @@ public class SingleLinkedList<T> extends LinkedList<T> implements ILinkedList<T>
         return tmpNode.Value;
     }
 
-    @Override
-    public void PrintList() {
-        System.out.println();
-        for (var tmpNode = firstNode; tmpNode != null; tmpNode = tmpNode.NextNode)
-        {
-            System.out.printf("%s ", tmpNode.Value.toString());
-        }
-        System.out.println();
-    }
-
-    @Override
-    public int Count()
-    {
-        if (firstNode == null)
-        {
-            return 0;
-        }
-        var counter = 1;
-
-        var tmpNode = firstNode;
-        while ((tmpNode = tmpNode.NextNode) != null)
-        {
-            counter++;
-        }
-
-        return counter;
-    }
-
     public void TaskA(T value)
     {
         var prevNode = firstNode;
